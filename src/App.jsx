@@ -1,11 +1,10 @@
 import React from 'react';
 import Header from './Header';
+import Body from './Body';
 
 function App() {
   return (
-    <div className='bg-red-500'> 
-     <Header></Header>
-    </div>
+    <Body />
   );
 }
 
@@ -22,3 +21,4 @@ export default App;
 //       -copyright
 //       - Link
 //       - Adreess
+ 
