@@ -1,24 +1,24 @@
-import React from 'react';
-import Header from './Header';
-import Body from './Body';
+import React from "react";
+import Header from "./component/Header";
+import Body from "./component/Body";
 
 function App() {
   return (
+   <>
+    <Header/>
     <Body />
+   </>
   );
 }
-
 export default App;
 
-
 // Header
-//   -logo 
-//   - Nav items 
-// Body 
+//   -logo
+//   - Nav items
+// Body
 //    - search
 //    - restro <Container></Container>
-// // footer 
+// // footer
 //       -copyright
 //       - Link
 //       - Adreess
- 
