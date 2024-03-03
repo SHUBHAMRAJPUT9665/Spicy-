@@ -7,13 +7,17 @@ import { useEffect } from "react";
 
 function Body() {
   const [data, setdata] = useState(null);
-  const fetchData = async () => {
-    const data = fetch("www.goole.com");
-    const jsonData = await data.json();
+  const API_URL =
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
     
-  }
-  useEffect(() => {
-   console. log("useeffect called...");
+const fetchData = async () =>{
+  const data = fetch(API_URL);
+  const swiggyData = await data.json();
+  console.log(swiggyData)
+}
+  
+  useEffect( async() => {
+    fetchData();
   }, []);
   return (
     <div>
