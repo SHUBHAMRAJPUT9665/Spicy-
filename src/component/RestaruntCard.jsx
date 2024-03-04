@@ -4,6 +4,8 @@ import { CDN_URL } from '../utils/constant';
 export const RestaruntCard = (props) => {
   const { resData } = props;
 
+  if(!resData) return 
+
   const {
     cloudinaryImageId,
     name,
@@ -11,7 +13,7 @@ export const RestaruntCard = (props) => {
     cuisines,
     costForTwo,
     deliveryTime,
-  } = resData?.data;
+  } = resData?.info;
 
   return (
     <div className='hover:cursor-pointer w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4 px-2'>
@@ -23,6 +25,9 @@ export const RestaruntCard = (props) => {
         <div className='p-4'>
           <h1 className='text-xl font-semibold mb-2'>{name}</h1>
           <p className='text-gray-700 mb-2'>{deliveryTime} min</p>
+          <p className='text-gray-700 mb-2'>{costForTwo} min</p>
+
+
           <div className='flex justify-between items-center'>
             <div className='flex items-center'>
               <svg className='w-4 h-4 text-yellow-500 mr-1' fill='currentColor' viewBox='0 0 20 20'>
