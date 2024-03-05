@@ -1,6 +1,7 @@
 import React from 'react';
 import { LOGO_URL } from '../utils/constant';
 
+
 const Header = () => {
   return (
     <div className='flex  justify-evenly pt-6 text-xl decoration-solid	h-[30%] border-b-2 border-indigo-500   '>
@@ -12,10 +13,11 @@ const Header = () => {
             <li className='hover:text-red-400'>Home</li>
             <li className='hover:text-red-400'> About</li>
             <li className='hover:text-red-400'>Contact</li>
+            <li className='hover:text-red-400'>Log In</li>
           </ul>
         </div>
     </div>
   );
 }
-export default Header;
+export default Header; 
  
