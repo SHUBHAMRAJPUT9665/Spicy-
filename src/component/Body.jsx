@@ -39,6 +39,20 @@ function Body() {
     );
     setFilteredData(filteredRestaurants);
   };
+
+  if(data.length == 0){
+    return(
+      <div className="flex flex-wrap">
+         <Shimmer />
+         <Shimmer />
+         <Shimmer />
+         <Shimmer />
+         <Shimmer />
+         <Shimmer /> 
+         <Shimmer />
+      </div>
+    )
+  }
   return (
     <div>
       <div className="flex">
