@@ -1,14 +1,17 @@
 import React from "react";
-import AppLayout from "./component/AppLayout";
+import Header from './Header'
+import Body from './Body'
+import {Outlet} from 'react-router-dom'
 
-function App() {
+const AppLayout = () => {
   return (
    <>
-    <AppLayout />
+    <Header/>
+    <Outlet />
    </>
   );
 }
-export default App;
+export default AppLayout;
 
 // Header
 //   -logo
