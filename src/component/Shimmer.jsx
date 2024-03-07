@@ -32,4 +32,7 @@ const Shimmer = () => (
   </div>
 );
 
+
+// resData.data.cards[0].card.card.info.name
+
 export default Shimmer;
