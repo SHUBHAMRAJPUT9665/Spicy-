@@ -1,9 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { CDN_URL } from "../utils/constant";
 // import { RESTAURANT_DETAILS_API_URL } from '../utils/constant';
 function RestaurantMenu() {
   const [resData, setresData] = useState([]);
+  
 
   useEffect(() => {
     fetchMenu();
@@ -16,33 +18,43 @@ function RestaurantMenu() {
     const dataq = await data.json();
     setresData(dataq);
   };
-  console.log(resData);
 
   if (resData.length == 0) {
     return (
-        <div className="flex flex-wrap">
+      <div className="flex flex-wrap">
         <Shimmer />
         <Shimmer />
         <Shimmer />
         <Shimmer />
         <Shimmer />
-        <Shimmer /> 
         <Shimmer />
-     </div>
+        <Shimmer />
+      </div>
     );
   }
 
+  const { name, cloudinaryImageId, cuisines, costForTwoMessage } =
+    resData?.data?.cards[0]?.card?.card?.info;
+
+
   return (
-    <div>
-      <h1>{resData?.data?.cards[0]?.card?.card?.info?.name}</h1>
-      <h2>Menu</h2>
-      <ul>
-        <li>Biryani</li>
-        <li>Paneer</li>
-        <li>KFC</li>
-        <li>Paneer Tikka</li>
-      </ul>
-    </div>
+    <>
+      <div>
+        <h1 className="text-2xl text-center">{name}</h1>
+        <h2>{costForTwoMessage}</h2>
+        <h1>Menu</h1>
+        <ul>
+          <li>{cuisines.join(", ")}</li>
+          <li>KFC</li>
+          <li>Paneer Tikka</li>
+        </ul>
+        <img
+          className="object-cover object-center rounded-t-lg"
+          src={CDN_URL + cloudinaryImageId}
+          alt="restaurant logo"
+        />
+      </div>
+    </>
   );
 }
 

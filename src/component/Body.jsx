@@ -55,7 +55,7 @@ function Body() {
   }
   return (
     <div>
-      <div className="flex">
+      <div className="flex ">
         <div>
           <input
             value={searchText}
