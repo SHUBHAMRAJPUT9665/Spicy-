@@ -5,7 +5,6 @@ import { CDN_URL } from "../utils/constant";
 // import { RESTAURANT_DETAILS_API_URL } from '../utils/constant';
 function RestaurantMenu() {
   const [resData, setresData] = useState([]);
-  
 
   useEffect(() => {
     fetchMenu();
@@ -36,7 +35,19 @@ function RestaurantMenu() {
   const { name, cloudinaryImageId, cuisines, costForTwoMessage } =
     resData?.data?.cards[0]?.card?.card?.info;
 
+  const resDataCategories = resData?.data.cards
+    .filter((card) => card?.groupedCard)
+    .map((card) => card?.groupedCard?.cardGroupMap?.REGULAR?.cards)
+    .flat(1)
+    .filter(
+      (card) =>
+        card?.card?.card["@type"] ===
+          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" ||
+        card?.card?.card["@type"] ===
+          "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
+    );
 
+  console.log(resDataCategories);
   return (
     <>
       <div>
