@@ -1,10 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import {useParams} from 'react-router-dom'
 import { CDN_URL } from "../utils/constant";
 // import { RESTAURANT_DETAILS_API_URL } from '../utils/constant';
 function RestaurantMenu() {
   const [resData, setresData] = useState([]);
+
+
+  const {resId}  = useParams();
 
   useEffect(() => {
     fetchMenu();
@@ -12,7 +16,7 @@ function RestaurantMenu() {
 
   const fetchMenu = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9165757&lng=77.6101163&restaurantId=145611&catalog_qa=undefined&submitAction=ENTER"
+      `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9165757&lng=77.6101163&restaurantId=${resId} &catalog_qa=undefined&submitAction=ENTER`
     );
     const dataq = await data.json();
     setresData(dataq);
@@ -31,39 +35,42 @@ function RestaurantMenu() {
       </div>
     );
   }
-
-  const { name, cloudinaryImageId, cuisines, costForTwoMessage } =
+  const { name, avgRating,cloudinaryImageId, cuisines, locality, costForTwoMessage } =
     resData?.data?.cards[0]?.card?.card?.info;
 
-  const resDataCategories = resData?.data.cards
-    .filter((card) => card?.groupedCard)
-    .map((card) => card?.groupedCard?.cardGroupMap?.REGULAR?.cards)
-    .flat(1)
-    .filter(
-      (card) =>
-        card?.card?.card["@type"] ===
-          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" ||
-        card?.card?.card["@type"] ===
-          "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
-    );
+  console.log(resData)
 
-  console.log(resDataCategories);
+  console.log(resData);
+  const { itemCards } =
+    resData?.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
+      ?.card;
+
+  console.log(itemCards);
+
   return (
     <>
       <div>
-        <h1 className="text-2xl text-center">{name}</h1>
-        <h2>{costForTwoMessage}</h2>
-        <h1>Menu</h1>
-        <ul>
-          <li>{cuisines.join(", ")}</li>
-          <li>KFC</li>
-          <li>Paneer Tikka</li>
-        </ul>
-        <img
-          className="object-cover object-center rounded-t-lg"
-          src={CDN_URL + cloudinaryImageId}
-          alt="restaurant logo"
-        />
+        <div className="">
+          <div>
+            <h1 className=" text-2xl text-orange-700 text-center font-medium p-1">
+              {name}
+            </h1>
+            <h1 className="text-center">{cuisines}</h1>
+            <h3 className=" text-center">{locality}</h3>
+            <p className="text-center">{costForTwoMessage}</p>
+          </div>
+          <div className=" p flex w-8 h-7 p-10 font-medium text-sm ">
+            <h1 >{avgRating}</h1>
+            <span>Rate</span>
+          </div>
+
+          <div className="">
+            <h1 className="px-10 text-xl font-medium text-orange-600">Menu</h1>
+           <ul className="px-20 font-medium">
+            {itemCards.map(item => <li >{item.card.info.name}</li> )}
+           </ul>
+          </div>
+      </div>
       </div>
     </>
   );

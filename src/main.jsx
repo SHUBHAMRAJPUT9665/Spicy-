@@ -40,8 +40,6 @@ const appRouter = createBrowserRouter([
   },
  
 ])
-
-
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider  router={appRouter}/>
+   <RouterProvider  router={appRouter}/>
 )

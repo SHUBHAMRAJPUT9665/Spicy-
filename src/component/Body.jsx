@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import RestaruntCard from "./RestaruntCard";
 import Header from "./Header";
 import Shimmer from "./Shimmer";
-
+import { Link } from "react-router-dom";
+ 
 function Body() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+
   const ASI_URL =
-    "https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.0024&lng=73.7945&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+    "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.997454&lng=73.789803&collection=";
 
   async function fetchData() {
     try {
@@ -17,12 +20,13 @@ function Body() {
       const restaurants = jsonData.data.cards
         .filter(
           (card) =>
-            card.card.card["@type"] ===
+            card.card.card["@type"] === 
             "type.googleapis.com/swiggy.gandalf.widgets.v2.GridWidget"
         )
         .flatMap(
           (card) => card.card.card.gridElements.infoWithStyle.restaurants
         );
+
       setData(restaurants);
       setFilteredData(restaurants);
     } catch (error) {
@@ -76,7 +80,7 @@ function Body() {
       </div>
       <div className="flex  47v re mt-10 flex-wrap">
         {filteredData?.map((restaurant, index) => (
-          <RestaruntCard
+          <RestaruntCard 
             key={`${restaurant?.info?.id}-${index}`}
             resData={restaurant}
           />

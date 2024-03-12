@@ -1,8 +1,12 @@
 import React from 'react';
 import { CDN_URL } from '../utils/constant';
 
+import {useNavigate} from 'react-router-dom'
+
 export const RestaruntCard = (props) => {
   const { resData } = props;
+
+  const navigate = useNavigate()
 
   if(!resData) return 
 
@@ -16,7 +20,9 @@ export const RestaruntCard = (props) => {
   } = resData?.info;
 
   return (
-    <div className='hover:cursor-pointer w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4 px-2'>
+    <div onClick={() =>{
+      navigate("restaurant/"+ resData?.info?.id)
+    }} className='hover:cursor-pointer w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4 px-2'>
       <div className='bg-white rounded-lg overflow-hidden shadow-lg transition duration-300 transform hover:-translate-y-1 hover:shadow-xl'>
         <img className='w-full h-40 object-cover object-center rounded-t-lg' src={
           CDN_URL +
