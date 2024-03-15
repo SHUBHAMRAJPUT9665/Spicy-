@@ -16,7 +16,7 @@ const Header = () => {
         </div>
         <div className='flex'>
           <ul className='flex  space-x-7 mr-10 hover:cursor-pointer ' >
-            <li className='hover:text-red-400 text-green-600'>{OnlineStauts?<i c class="ri-wifi-line"></i>:<i class="ri-wifi-off-line"></i>}</li>
+            <li className='hover:text-red-400 text-green-600'>{OnlineStauts?<i class="ri-wifi-line"></i>:<i class="ri-wifi-off-line"></i>}</li>
             <li onClick={() => navigate('/')} className='hover:text-red-400'>Home</li>
             <li  onClick={() => navigate('/about')} className='hover:text-red-400'> About</li>
             <li onClick={() => navigate('/contact')} className='hover:text-red-400'>Contact</li>

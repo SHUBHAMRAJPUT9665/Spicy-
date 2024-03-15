@@ -4,19 +4,16 @@ import RestaruntCard from "./RestaruntCard";
 import Header from "./Header";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom"; 
-import { motion } from "framer-motion"
-
-
 import useOnlineStatus from './Hooks/useOnlineStatus'
 
-function Body() {
+const Body = () => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchText, setSearchText] = useState("");
   const onlineStatus = useOnlineStatus();
 
   const ASI_URL =
-    "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+    "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.997454&lng=73.789803&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
   async function fetchData() {
     try {

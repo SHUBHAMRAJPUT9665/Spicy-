@@ -25,7 +25,7 @@ class UserClass extends React.Component {
     const {avatar_url} = this.state.userInfo
 
     return (
-      <div className="mt-10 w-full h-60 bg-orange-500 text-xl font-medium  flex justify- items-center flex-col">
+      <div className="mt-10 w- full h-60 bg-orange-500 text-xl font-medium  flex justify- items-center flex-col">
         <h2>Name:{name}</h2>
         <h3>{this.props.location}</h3>
         <h4>Contact: 9665768968</h4>
