@@ -1,13 +1,19 @@
+
 import React, { useState, useEffect } from "react";
 import RestaruntCard from "./RestaruntCard";
 import Header from "./Header";
 import Shimmer from "./Shimmer";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; 
+import { motion } from "framer-motion"
+
+
+import useOnlineStatus from './Hooks/useOnlineStatus'
 
 function Body() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const onlineStatus = useOnlineStatus();
 
   const ASI_URL =
     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
@@ -42,6 +48,8 @@ function Body() {
     );
     setFilteredData(filteredRestaurants);
   };
+
+  if(onlineStatus == false) return <h1 className="text-center text-2xl font-semibold text-orange-600 mt-8  ">Looks like you're offline! Please check your internert connection..</h1>
 
   if (data.length == 0) {
     return (
@@ -89,3 +97,4 @@ function Body() {
   );
 }
 export default Body;
+ 
