@@ -6,11 +6,10 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Login from './component/Login.jsx'
 import Contact from './component/Contact.jsx'
 import Error from './component/Error.jsx'
-import About from './component/About.jsx'
 import Body from './component/Body.jsx'
 import Shimmer from './component/Shimmer.jsx'
 const RestaurantMenu = lazy(() => import('./component/RestaurantMenu.jsx'))
-
+const About = lazy(() =>import('./component/About.jsx') )
 
 const appRouter = createBrowserRouter([
   {
@@ -27,7 +26,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path:'/about',
-        element: <About/>
+        element: <Suspense fallback={<Shimmer/>}><About/></Suspense>
       },
       {
         path:'/contact',

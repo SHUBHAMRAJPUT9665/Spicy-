@@ -1,6 +1,5 @@
 import React from "react";
 import { CDN_URL } from "../utils/constant";
-
 import { useNavigate } from "react-router-dom";
 
 export const RestaruntCard = (props) => {
@@ -8,7 +7,7 @@ export const RestaruntCard = (props) => {
 
   const navigate = useNavigate();
 
-  if (!resData) return;
+  if (!resData) return null; // Returning null if resData is falsy
 
   const {
     cloudinaryImageId,
@@ -24,33 +23,34 @@ export const RestaruntCard = (props) => {
       onClick={() => {
         navigate("restaurant/" + resData?.info?.id);
       }}
-      className="hover:cursor-pointer w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4 px-2"
+      className="cursor-pointer w-1/2 sm:w-1/3 md:w-full lg:w-1/3 xl:w-1/4 mb-3 px-2"
     >
       <div className="bg-white rounded-lg overflow-hidden shadow-lg transition duration-300 transform hover:-translate-y-1 hover:shadow-xl">
         <img
-          className="w-full h-40 object-cover object-center rounded-t-lg"
+          className="w-full h-40 sm:h-40 object-cover object-center rounded-t-lg"
           src={CDN_URL + cloudinaryImageId}
           alt="restaurant logo"
         />
         <div className="p-4">
-          <h1 className="text-xl font-semibold mb-2">{name}</h1>
-          <p className="text-gray-700 mb-2">{deliveryTime} </p>
-          <p className="text-gray-700 mb-2">{costForTwo} min</p>
+    <h1 className="text-md sm:text-xl font-semibold mb-2">{name}</h1>
+    <p className="text-gray-700 mb-2">{deliveryTime}</p>
+    <p className="text-gray-700 mb-2">{costForTwo} min</p>
 
-          <div className="flex justify-between items-center">
-            <div className="flex items-center">
-              <span className="text-gray-600">{avgRating}</span>
-              <svg
+    <div className="flex justify-between items-center">
+        <div className="flex items-center">
+            <span className="text-gray-600 text-sm font-semibold sm:text-md">{avgRating}</span>
+            <svg
                 className="w-4 h-4 text-yellow-500 mr-1"
                 fill="currentColor"
                 viewBox="0 0 20 20"
-              >
+            >
                 <path d="M10 1L12.38 6.74H18.28L13.63 10.24L15 16.02L10 12.76L5 16.02L6.38 10.24L1.72 6.74H7.62L10 1Z" />
-              </svg>
-            </div>
-            <span className="text-gray-700"></span>
-          </div>
+            </svg>
         </div>
+        <span className="text-gray-700"></span>
+    </div>
+</div>
+
       </div>
     </div>
   );
