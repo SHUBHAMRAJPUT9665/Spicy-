@@ -10,7 +10,7 @@ const Header = () => {
 
   const OnlineStauts = useOnlineStatus();
   return (
-    <div className='flex  justify-around sm:justify-between items-center   text-md sm:text-xl  decoration-solid	h-[30%] border-b-2 border-indigo-500   '>
+    <div className='flex bg-pink-100  justify-around sm:justify-between items-center   text-md sm:text-xl  decoration-solid	h-[30%] border-b-2 border-indigo-500   '>
         <div className='w-14 mt-2 sm:mt-0 sm:w-20'>
           <img className='mb-2' src={ LOGO_URL} alt="" />
         </div>

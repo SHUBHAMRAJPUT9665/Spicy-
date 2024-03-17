@@ -61,11 +61,14 @@ function Body() {
         <Shimmer />
         <Shimmer />
         <Shimmer />
+        <Shimmer />
+        <Shimmer />
+        <Shimmer />
       </div>
     );
   }
   return (
-    <div>
+    <div className="bg-slate-200">
       <div className="flex flex-row">
         <div className="flex justify-between">
           <input
@@ -85,7 +88,7 @@ function Body() {
           </button>
         </div>
       </div>
-      <div className="flex  47v re mt-10 flex-wrap">
+      <div className="flex   mt-10 flex-wrap">
         {filteredData?.map((restaurant, index) => (
           <RestaruntCard
             key={`${restaurant?.info?.id}-${index}`}

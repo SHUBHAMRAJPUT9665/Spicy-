@@ -36,9 +36,9 @@ export const RestaruntCard = (props) => {
     <p className="text-gray-700 mb-2">{deliveryTime}</p>
     <p className="text-gray-700 mb-2">{costForTwo} min</p>
 
-    <div className="flex justify-between items-center">
-        <div className="flex items-center">
-            <span className="text-gray-600 text-sm font-semibold sm:text-md">{avgRating}</span>
+    <div className="flex justify-between  items-center">
+        <div className=" flex items-center">
+            <span className="text-gray-600 text-sm font-semibold sm:text">{avgRating}</span>
             <svg
                 className="w-4 h-4 text-yellow-500 mr-1"
                 fill="currentColor"
@@ -47,7 +47,6 @@ export const RestaruntCard = (props) => {
                 <path d="M10 1L12.38 6.74H18.28L13.63 10.24L15 16.02L10 12.76L5 16.02L6.38 10.24L1.72 6.74H7.62L10 1Z" />
             </svg>
         </div>
-        <span className="text-gray-700"></span>
     </div>
 </div>
 
