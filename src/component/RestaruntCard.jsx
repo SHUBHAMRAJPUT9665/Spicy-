@@ -23,7 +23,7 @@ export const RestaruntCard = (props) => {
       onClick={() => {
         navigate("restaurant/" + resData?.info?.id);
       }}
-      className="cursor-pointer w-1/2 sm:w-1/3 md:w-full overflow-hidden lg:w-1/3 xl:w-1/4 mb-3 px-2"
+      className="cursor-pointer w-full sm:w-1/3 md:w-full overflow-hidden lg:w-1/3 xl:w-1/4 mb-3 px-2"
     >
       <div className="bg-white rounded-lg overflow-hidden shadow-lg transition duration-300 transform hover:-translate-y-1 hover:shadow-xl">
         <img
