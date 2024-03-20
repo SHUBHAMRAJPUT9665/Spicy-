@@ -21,7 +21,7 @@ function RestaurantMenu() {
       </div>
     );
   }
-  const { name, avgRating,cloudinaryImageId, cuisines, locality, costForTwoMessage } =
+  const { name, avgRating,cloudinaryImageId, cuisines, locality, costForTwoMessage,areaName } =
     resData?.data?.cards[0]?.card?.card?.info;
 
     
@@ -36,12 +36,26 @@ function RestaurantMenu() {
 
   return (
     <>
-     <div className="text-center">
-      <h1 className="font-bold mt-6 mb-3 text-3xl">{name}</h1>
-      <p className="font-bold text-lg">{cuisines}</p>
 
-      {categories.map((category) => <RestaurantCategory  data={category?.card?.card} />)}
-     </div>
+<div className="sm:flex flex-col">
+        <div className="ml-3 sm:ml-36 sm:flex sm:justify-around items-center">
+          <div>
+            <h1 className="font-bold mt-6 mb-3 text-xl sm:text-3xl">{name}</h1>
+            <span className="mr-4 text-lg text-gray-500">{areaName}</span>
+            <span className="text-lg text-gray-500">{cuisines}</span>
+          </div>
+          
+            <span className="text-xl">
+              <span className="text-green-600 p-2">★</span>
+              {avgRating}
+            </span>
+          
+        </div>
+
+        {categories.map((category) => (
+          <RestaurantCategory data={category?.card?.card} />
+        ))}
+      </div>
     </>
   );
 }
