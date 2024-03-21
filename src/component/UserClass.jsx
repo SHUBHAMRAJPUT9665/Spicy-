@@ -1,6 +1,6 @@
 import React from "react";
 
-class UserClass extends React.Component {
+className UserclassName extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,4 +35,4 @@ class UserClass extends React.Component {
     );
   }
 }
-export default UserClass ;
+export default UserclassName ;

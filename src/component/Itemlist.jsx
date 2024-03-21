@@ -7,21 +7,32 @@ const Itemlist = ({ item }) => {
     return <div>No items to display</div>;
   }
 
-  console.log(item)
-
   return (
     <div className="">
       {item.map((item) => (
-        <div className=" p-2 m-2 flex items-center justify-between border-gray-400 border-t-2 " key={item.card.info.id}>
-          <div className="">
+        <div
+          className="p-2 m-2  w-full  flex items-center justify-between border-gray-400 border-t-2 "
+          key={item.card.info.id}
+        >
+          <div className="w-3/4 p-2 sm:w-10/12">
             <span>{item.card.info.name}</span> <br />
             <span>₹{item.card.info.price / 100}</span>
-            <p className="text-xs pt-3 pb-4">{item.card.info.description}</p>
+            <p className="text-xs text-gray-500 pt-3 pb-4">
+              {item.card.info.description}
+            </p>
           </div>
-          <div>
-            <img className=" w-16 h-14 sm:w-24 rounded-md sm:h-20" src={CDN_URL + item.card.info.imageId} alt="" />
+          <div className="w-1/4  sm:w-1/6">
+            <div>
+              <button className="sm:p-2 px-2 text-green-600 mx-8 sm:text-sm sm:mx-12 rounded-md bg-white shadow-lg absolute">
+                Add
+              </button>
+            </div>
+            <img
+              className="sm:w-32 m-3 bg-white  w-20 h-20 rounded-md sm:h-20"
+              src={CDN_URL + item.card.info.imageId}
+              alt=""
+            />
           </div>
-
         </div>
       ))}
     </div>

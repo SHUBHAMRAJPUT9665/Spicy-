@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import UserClass from "./UserClass";
+import UserclassName from "./UserclassName";
 
 const About = (props) => {
 
   return (
     <div className="mt-2">
       <h1 className="font-medium text-xl text-center">About us</h1>
-      <UserClass name={"Shubhma Rajput"} location={"nashik"} />
+      <UserclassName name={"Shubhma Rajput"} location={"nashik"} />
     </div>
   );
 };
