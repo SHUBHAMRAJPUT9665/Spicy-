@@ -8,7 +8,7 @@ const RestaurantCategory = ({ data }) => {
     setShowItems(prevState => !prevState);
   };
   return (
-    <div className='w-5/6 sm:w-6/12 mx-auto rounded-md font-semibold my-4 m-auto bg-gray-200 p-4 text-md'>
+    <div className='w-5/6 sm:w-6/12 mx-auto rounded-md font-semibold my-4 m-auto bg-gray-100 p-4 text-md'>
       <div className='flex justify-between cursor-pointer' onClick={handleToggle}>
         <span className='font-bold text-md sm:text-xl'>{data.title}</span>
         <span><i className="ri-arrow-down-s-fill"></i></span>
