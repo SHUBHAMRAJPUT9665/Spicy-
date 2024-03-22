@@ -4,12 +4,13 @@ import {useNavigate} from 'react-router-dom'
 import useOnlineStatus from './Hooks/useOnlineStatus';
 import { useContext } from 'react';
 import {UserContext} from  '../utils/UserContext'
-
+import { useSelector } from 'react-redux'
 const Header = () => {
   const navigate = useNavigate()
 
   const data = useContext(UserContext)
 
+  const cart = useSelector((state) => state.cart.items)
 
   const OnlineStauts = useOnlineStatus();
   return (
@@ -24,7 +25,7 @@ const Header = () => {
             <li  onClick={() => navigate('/about')} className='hover:text-red-400'> About</li>
             <li onClick={() => navigate('/contact')} className='hover:text-red-400'>Contact</li>
             <li onClick={() => navigate('/login')} className='hover:text-red-400'>{data.loggedInUser}</li>
-            <li  className='hover:text-red-400 w-10'><img className='rounded-full' src={data.image} alt="" /></li>
+            <li onClick={() => navigate('/cart')}  className='hover:text-red-400 text-orange-600 text-xl'><i  class="ri-shopping-cart-2-fill"></i>({cart.length})</li>
 
           </ul>
         </div>

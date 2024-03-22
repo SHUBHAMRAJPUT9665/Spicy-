@@ -1,11 +1,17 @@
 import React from "react";
 import { CDN_URL } from "../utils/constant";
 
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/CartSlice";
+
 const Itemlist = ({ item }) => {
+  const dispatch = useDispatch();
   // Check if item is defined and is an array before attempting to map over it
   if (!item || !Array.isArray(item)) {
     return <div>No items to display</div>;
   }
+
+  console.log(item);
 
   return (
     <div className="">
@@ -23,7 +29,12 @@ const Itemlist = ({ item }) => {
           </div>
           <div className="w-1/4  sm:w-1/6">
             <div>
-              <button className="sm:p-2 px-2 text-green-600 mx-8 sm:text-sm sm:mx-12 rounded-md bg-white shadow-lg absolute">
+              <button
+                onClick={() => {
+                  dispatch(addItem(item.card.info));
+                }}
+                className="sm:p-2 px-2 text-green-600 mx-8 sm:text-sm sm:mx-12 rounded-md bg-white shadow-lg absolute"
+              >
                 Add
               </button>
             </div>
