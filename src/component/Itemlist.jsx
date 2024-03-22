@@ -1,17 +1,30 @@
 import React from "react";
 import { CDN_URL } from "../utils/constant";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../utils/CartSlice";
+import toast from 'react-hot-toast'
 
 const Itemlist = ({ item }) => {
   const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+
   // Check if item is defined and is an array before attempting to map over it
   if (!item || !Array.isArray(item)) {
     return <div>No items to display</div>;
   }
 
-  console.log(item);
+  const handleAddToCart = (itemToAdd) => {
+    // Check if the item is already in the cart
+    const alreadyInCart = cartItems.some((cartItem) => cartItem.id === itemToAdd.id);
+
+    if (alreadyInCart) {
+      toast.error('Item already added to cart');
+    } else {
+      dispatch(addItem(itemToAdd));
+      toast.success('Added to cart');
+    }
+  };
 
   return (
     <div className="">
@@ -30,9 +43,7 @@ const Itemlist = ({ item }) => {
           <div className="w-1/4  sm:w-1/6">
             <div>
               <button
-                onClick={() => {
-                  dispatch(addItem(item.card.info));
-                }}
+                onClick={() => handleAddToCart(item.card.info)}
                 className="sm:p-2 px-2 text-green-600 mx-8 sm:text-sm sm:mx-12 rounded-md bg-white shadow-lg absolute"
               >
                 Add
