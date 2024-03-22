@@ -5,9 +5,12 @@ import { CDN_URL } from "../utils/constant";
 
 const Cart = () => {
   const item = useSelector((state) => state.cart.items);
-  console.log(item);
+  const cartTotal = useSelector((state) => state.cart.total);
 
-  if(item.length == 0) return <h1 className="font-bold text-xl text-center p-3">no item added</h1>
+  console.log(cartTotal);
+
+  if (item.length == 0)
+    return <h1 className="font-bold text-xl text-center p-3">no item added</h1>;
   return (
     <div className="w-5/6 sm:w-6/12 mx-auto rounded-md font-semibold my-4 m-auto bg-gray-100 p-4 text-md">
       <div className="flex justify-between cursor-pointer">
@@ -40,6 +43,19 @@ const Cart = () => {
             </div>
           ))}
         </div>
+      </div>
+      <div
+        className="p-2 m-2  w-full  flex items-center justify-between border-gray-400 border-t-2 "
+        key={item.id}
+       >
+        <div className="w-3/4 p-2 sm:w-10/12">
+          <span className="font-bold sm:text-xl p-3 mr-3">Grant Total</span>
+          <span>₹{cartTotal}</span>
+        </div>
+        <div>
+          <h1 className="sm:text-xl  cursor-pointer p-2 bg-green-400 mx-3 px-4 rounded-xl">order</h1>
+        </div>
+        
       </div>
     </div>
   );

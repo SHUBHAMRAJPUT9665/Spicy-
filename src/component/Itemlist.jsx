@@ -9,6 +9,8 @@ const Itemlist = ({ item }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
 
+
+
   // Check if item is defined and is an array before attempting to map over it
   if (!item || !Array.isArray(item)) {
     return <div>No items to display</div>;
