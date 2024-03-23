@@ -13,14 +13,3 @@ function App() {
   );
 }
 export default App;
-
-// Header
-//   -logo
-//   - Nav items
-// Body
-//    - search
-//    - restro <Container></Container>
-// // footer
-//       -copyright
-//       - Link
-//       - Adreess
