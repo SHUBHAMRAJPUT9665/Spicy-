@@ -49,7 +49,7 @@ const Cart = () => {
         key={item.id}
        >
         <div className="w-3/4 p-2 sm:w-10/12">
-          <span className="font-bold sm:text-xl p-3 mr-3">Grant Total</span>
+          <span className="font-bold sm:text-xl p-3 mr-3">Grand Total</span>
           <span>₹{cartTotal}</span>
         </div>
         <div>

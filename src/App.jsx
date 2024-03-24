@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; 
 import AppLayout from "./component/AppLayout";
 import toast, { Toaster } from "react-hot-toast";
 
