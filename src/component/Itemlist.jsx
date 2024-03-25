@@ -17,7 +17,6 @@ const Itemlist = ({ item }) => {
   }
 
   const handleAddToCart = (itemToAdd) => {
-    // Check if the item is already in the cart
     const alreadyInCart = cartItems.some((cartItem) => cartItem.id === itemToAdd.id);
 
     if (alreadyInCart) {
@@ -26,8 +25,7 @@ const Itemlist = ({ item }) => {
       dispatch(addItem(itemToAdd));
       toast.success('Added to cart');
     }
-  };
-
+  }; 
   return (
     <div className="">
       {item.map((item) => (

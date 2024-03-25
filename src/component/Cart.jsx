@@ -2,12 +2,14 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 import { CDN_URL } from "../utils/constant";
+import { useDispatch } from "react-redux";
+import { clearCart, removeItem } from "../utils/CartSlice";
 
 const Cart = () => {
   const item = useSelector((state) => state.cart.items);
   const cartTotal = useSelector((state) => state.cart.total);
 
-  console.log(cartTotal);
+  const dispatch = useDispatch();
 
   if (item.length == 0)
     return <h1 className="font-bold text-xl text-center p-3">no item added</h1>;
@@ -15,6 +17,13 @@ const Cart = () => {
     <div className="w-5/6 sm:w-6/12 mx-auto rounded-md font-semibold my-4 m-auto bg-gray-100 p-4 text-md">
       <div className="flex justify-between cursor-pointer">
         <span className="font-bold text-md sm:text-xl">cart</span>
+        <span
+          onClick={() => {
+            dispatch(clearCart());
+          }}
+        >
+          Clear Cart
+        </span>
         <span>
           <i className="ri-arrow-down-s-fill"></i>
         </span>
@@ -47,15 +56,16 @@ const Cart = () => {
       <div
         className="p-2 m-2  w-full  flex items-center justify-between border-gray-400 border-t-2 "
         key={item.id}
-       >
+      >
         <div className="w-3/4 p-2 sm:w-10/12">
           <span className="font-bold sm:text-xl p-3 mr-3">Grand Total</span>
           <span>₹{cartTotal}</span>
         </div>
         <div>
-          <h1 className="sm:text-xl  cursor-pointer p-2 bg-green-400 mx-3 px-4 rounded-xl">order</h1>
+          <h1 className="sm:text-xl  cursor-pointer p-2 bg-green-400 mx-3 px-4 rounded-xl">
+            order
+          </h1>
         </div>
-        
       </div>
     </div>
   );
