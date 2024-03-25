@@ -1,19 +1,22 @@
-
 import React, { useState, useEffect } from "react";
 import RestaruntCard from "./RestaruntCard";
 import Header from "./Header";
 import Shimmer from "./Shimmer";
-import { Link } from "react-router-dom"; 
-import { motion } from "framer-motion"
-
-
-import useOnlineStatus from './Hooks/useOnlineStatus'
+import { cate } from "../utils/data";
+import useOnlineStatus from "./Hooks/useOnlineStatus";
 
 function Body() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchText, setSearchText] = useState("");
   const onlineStatus = useOnlineStatus();
+
+
+
+  console.log(cate)
+
+  
+
 
   const ASI_URL =
     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
@@ -49,8 +52,12 @@ function Body() {
     setFilteredData(filteredRestaurants);
   };
 
-  if(onlineStatus == false) return <h1 className="text-center text-2xl font-semibold text-orange-600 mt-8  ">Looks like you're offline! Please check your internert connection..</h1>
-
+  if (onlineStatus == false)
+    return (
+      <h1 className="text-center text-2xl font-semibold text-orange-600 mt-8  ">
+        Looks like you're offline! Please check your internert connection..
+      </h1>
+    );
 
   if (data.length == 0) {
     return (
@@ -69,36 +76,30 @@ function Body() {
     );
   }
   return (
-    <div className="bg-slate-200">
-      <div className="flex flex-row">
-        <div className="flex justify-between">
-          <input
-            value={searchText}
-            onChange={(e) => {
-              setSearchText(e.target.value);
-            }}
-            placeholder="Search Restaurant"
-            type="text"
-            className="m-3 w-1/2  sm:w-full px-4 py-2 border-2 border-sky-500  rounded-lg "
-          />
-          <button
-            className="p-2  bg-orange-400 rounded-lg px-3 text-white"
-            onClick={handleSearch}
-          >
-            Search
-          </button>
+    <>
+      <div className="max-w-[1200px] mx-auto">
+        <div className="flex justify-between  items-center">
+          <div className="text-[25px] font-bold">What's on your mind?</div>
+          <div className="flex items-center">
+            <div className="w-[30px]  flex justify-center items-center h-[30px] bg-[#e2e2e7] font-bold text-xl  rounded-full mx-2"><i class="ri-arrow-left-line"></i></div>
+            <div className="w-[30px] fo flex justify-center items-center h-[30px] bg-[#e2e2e7] font-bold text-xl rounded-full mx-2"><i class="ri-arrow-right-line"></i></div>
+          </div>
         </div>
       </div>
-      <div className="flex   mt-10 flex-wrap">
-        {filteredData?.map((restaurant, index) => (
-          <RestaruntCard
-            key={`${restaurant?.info?.id}-${index}`}
-            resData={restaurant}
-          />
-        ))}
+      <div className="bg-slate-200">
+        <div className="flex flex-row">
+          <div className="flex justify-between"></div>
+        </div>
+        <div className="flex   mt-10 flex-wrap">
+          {filteredData?.map((restaurant, index) => (
+            <RestaruntCard
+              key={`${restaurant?.info?.id}-${index}`}
+              resData={restaurant}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 export default Body;
- 

@@ -1,36 +1,47 @@
-import React from 'react';
-import { LOGO_URL } from '../utils/constant';
-import {useNavigate} from 'react-router-dom'
-import useOnlineStatus from './Hooks/useOnlineStatus';
-import { useContext } from 'react';
-import {UserContext} from  '../utils/UserContext'
-import { useSelector } from 'react-redux'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import useOnlineStatus from "./Hooks/useOnlineStatus";
+import { useContext } from "react";
+import { UserContext } from "../utils/UserContext";
+import { useSelector } from "react-redux";
+import { useState } from "react";
 const Header = () => {
-  const navigate = useNavigate()
-
-  const data = useContext(UserContext)
-
-  const cart = useSelector((state) => state.cart.items)
-
+  const navigate = useNavigate();
+  const data = useContext(UserContext);
+  const cart = useSelector((state) => state.cart.items);
   const OnlineStauts = useOnlineStatus();
-  return (
-    <div className='flex bg-pink-100 p-3  justify-around sm:justify-between items-center   text-md sm:text-xl  decoration-solid	h-[30%] border-b-2 border-indigo-500   '>
-        <div className='w-14 mt-2 sm:mt-0 sm:w-20'>
-          <img className='mb-2 rounded-[100%]' src={ LOGO_URL} alt="" />
-        </div>
-        <div className='flex'>
-          <ul className='flex gap-3 sm:space-x-7 sm:mr-10 hover:cursor-pointer ' >
-            <li className='hover:text-red-400 text-green-600'>{OnlineStauts?<i className="ri-wifi-line"></i>:<i className="ri-wifi-off-line"></i>}</li>
-            <li onClick={() => navigate('/')} className='hover:text-red-400'>Home</li>
-            <li  onClick={() => navigate('/about')} className='hover:text-red-400'> About</li>
-            <li onClick={() => navigate('/contact')} className='hover:text-red-400'>Contact</li>
-            <li onClick={() => navigate('/login')} className='hover:text-red-400'>{data.loggedInUser}</li>
-            <li onClick={() => navigate('/cart')}  className='hover:text-red-400 text-orange-600 text-xl'><i  class="ri-shopping-cart-2-fill"></i>({cart.length})</li>
 
-          </ul>
+  return (
+    <>
+      <header className="p-[15px] shadow-xl ">
+        <div className="max-w-[1250px] flex items-center  mx-auto ">
+          <div className="w-[100px]">
+            <img
+              className="w-full"
+              src="https://banner2.cleanpng.com/20180616/afx/kisspng-swiggy-office-business-online-food-ordering-delive-swiggy-5b251ebb823014.9894761415291593555333.jpg"
+              alt=""
+            />
+          </div>
+          <div className="">
+            {" "}
+            <span className="font-bold text-orange-400 border-black  border-b-[3px] ">
+              Other
+            </span>{" "}
+            2R6C+VR7, Durga Nagar, Nashik, Mah{" "}
+            <span className="text-orange-500 font-bold text-xl ml-4">
+              <i class="ri-arrow-down-s-line"></i>
+            </span>{" "}
+          </div>
+          <nav className="flex  gap-7 ml-auto text-[20px] font-semibold ">
+            <h1 onClick={() => navigate('/')} className="cursor-pointer hover:text-orange-400"><span><i class="ri-search-line"></i></span> Home</h1>
+            <h1 onClick={() => navigate('/about')} className="cursor-pointer hover:text-orange-400"><span><i class="ri-discount-percent-line"></i></span> Offeres</h1>
+            <h1 onClick={() => navigate('/login')}  className="cursor-pointer hover:text-orange-400"><span><i class="ri-chat-smile-line"></i></span> Help</h1>
+            <h1 className="cursor-pointer hover:text-orange-400"><span><i class="ri-user-line"></i></span> Name</h1>
+            <h1 onClick={() => navigate('/cart')}  className="cursor-pointer hover:text-orange-400"> <span><i class="ri-shopping-cart-line">({cart.length})</i></span> Cart</h1>
+          </nav>
         </div>
-    </div>
+      </header>
+    </>
   );
-}
-export default Header; 
- 
+};
+export default Header;
