@@ -11,12 +11,7 @@ function Body() {
   const [searchText, setSearchText] = useState("");
   const onlineStatus = useOnlineStatus();
 
-
-
-  console.log(cate)
-
-  
-
+  console.log(cate);
 
   const ASI_URL =
     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
@@ -77,16 +72,32 @@ function Body() {
   }
   return (
     <>
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[1200px] mx-auto p-5">
         <div className="flex justify-between  items-center">
           <div className="text-[25px] font-bold">What's on your mind?</div>
           <div className="flex items-center">
-            <div className="w-[30px]  flex justify-center items-center h-[30px] bg-[#e2e2e7] font-bold text-xl  rounded-full mx-2"><i class="ri-arrow-left-line"></i></div>
-            <div className="w-[30px] fo flex justify-center items-center h-[30px] bg-[#e2e2e7] font-bold text-xl rounded-full mx-2"><i class="ri-arrow-right-line"></i></div>
+            <div className="w-[30px]  flex justify-center items-center h-[30px] bg-[#e2e2e7] font-bold text-xl  rounded-full mx-2">
+              <i class="ri-arrow-left-line"></i>
+            </div>
+            <div className="w-[30px] fo flex justify-center items-center h-[30px] bg-[#e2e2e7] font-bold text-xl rounded-full mx-2">
+              <i class="ri-arrow-right-line"></i>
+            </div>
           </div>
         </div>
+        <div className="flex overflow-hidden">
+          {cate.map((cat) =>{
+            return(
+              <div style={{
+                transform:`translate()`
+              }} className="w-[150px] shrink-0 ">
+                <img src={cat.url} alt="" />
+              </div>
+            )
+          })}
+
+        </div>
       </div>
-      <div className="bg-slate-200">
+      <div>
         <div className="flex flex-row">
           <div className="flex justify-between"></div>
         </div>
