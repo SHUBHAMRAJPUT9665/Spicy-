@@ -6,3 +6,10 @@
 .black-overlay{
     background-color: rgb(0,0,0,0.7);
 }
+
+/* Hide scrollbar when there's no overflow */
+.scrollbar-hide::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+  }
+  
