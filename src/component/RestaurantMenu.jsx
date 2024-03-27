@@ -20,7 +20,10 @@ function RestaurantMenu() {
         <Shimmer />
       </div>
     );
+
   }
+
+
   const { name, avgRating,cloudinaryImageId, cuisines, locality, costForTwoMessage,areaName } =
     resData?.data?.cards[0]?.card?.card?.info;
 

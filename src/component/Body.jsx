@@ -74,7 +74,7 @@ function Body() {
     <>
       <div className="max-w-[1200px] mx-auto p-5">
         <div className="flex justify-between  items-center">
-          <div className="text-[20px] sm:text-[25px] font-bold">What's on your mind?</div>
+          <div className=" text-[20px] sm:text-[25px] font-bold">What's on your mind?</div>
           <div className="flex items-center">
             <div className="w-[30px]  flex justify-center items-center h-[30px] bg-[#e2e2e7] font-bold text-xl  rounded-full mx-2">
               <i class="ri-arrow-left-line"></i>
@@ -84,7 +84,7 @@ function Body() {
             </div>
           </div>
         </div>
-        <div className="flex overflow-x-auto scrollbar-hide">
+        <div className="flex overflow-x-auto scrollbar-hide cursor-pointer">
           {cate.map((cat, index) => (
             <div key={index} className="w-150px flex-none mr-2">
               <img

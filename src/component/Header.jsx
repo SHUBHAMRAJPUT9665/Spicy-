@@ -33,18 +33,19 @@ const Header = () => {
           </span>
           <span className="hidden md:inline-block ml-2">2R6C+VR7, Durga Nagar, Nashik, Mah</span>
         </daiv>
-        <nav className={`md:flex md:items-center ${isMenuOpen ? '' : 'hidden'}`}>
-          <div className="flex flex-col md:flex-row text-[15px] sm:text-xl font-bold md:gap-8 md:ml-auto">
+        <div className="md:hidden">
+          <h1 onClick={toggleMenu} className="font-bold text-xl cursor-pointer hover:text-orange-400"><span><i className={`ri-${isMenuOpen ? 'close-line' : 'menu-line'}`}></i></span></h1>
+        </div>
+        <nav className={`md:flex  md:items-center ${isMenuOpen ? '' : 'hidden'}`}>
+          <div className="flex flex-col md:flex-row text-[15px] sm:text-xl font-semibold  md:gap-5 md:ml-auto">
             <h1 onClick={() => navigate('/')} className="cursor-pointer hover:text-orange-400"><span><i className="ri-search-line"></i></span> Home</h1>
             <h1 onClick={() => navigate('/about')} className="cursor-pointer hover:text-orange-400"><span><i className="ri-discount-percent-line"></i></span> Offers</h1>
             <h1 onClick={() => navigate('/login')} className="cursor-pointer hover:text-orange-400"><span><i className="ri-chat-smile-line"></i></span> Help</h1>
             <h1 className="cursor-pointer hover:text-orange-400"><span><i className="ri-user-line"></i></span> Name</h1>
-            <h1 onClick={() => navigate('/cart')} className="cursor-pointer hover:text-orange-400"><span><i className="ri-shopping-cart-line"></i></span> Cart ({cart.length})</h1>
+            <h1 onClick={() => navigate('/cart')} className="cursor-pointer hover:text-orange-400"><span><i className="ri-shopping-cart-line"></i></span> Cart <span className="text-sm relative b"> ({cart.length})</span></h1>
           </div>
         </nav>
-        <div className="md:hidden">
-          <h1 onClick={toggleMenu} className="font-bold text-xl cursor-pointer hover:text-orange-400"><span><i className={`ri-${isMenuOpen ? 'close-line' : 'menu-line'}`}></i></span></h1>
-        </div>
+        
       </div>
     </header>
   );
