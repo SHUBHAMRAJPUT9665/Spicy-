@@ -19,7 +19,7 @@ const Header = () => {
   };
 
   return (
-    <header className="px-4 py-2 md:px-6 md:py-3 shadow-xl">
+    <header className="px-4 py-2 md:px-6 md:py-3 shadow-md">
       <div className="max-w-screen-xl p-4 mx-auto flex flex-wrap items-center justify-between">
         <daiv className="flex items-center">
           <img

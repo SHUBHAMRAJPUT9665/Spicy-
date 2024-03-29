@@ -11,8 +11,6 @@ function Body() {
   const [searchText, setSearchText] = useState("");
   const onlineStatus = useOnlineStatus();
 
-  console.log(cate);
-
   const ASI_URL =
     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
@@ -72,9 +70,11 @@ function Body() {
   }
   return (
     <>
-      <div className="max-w-[1200px] mx-auto p-5">
+      <div className="max-w-[1200px] mx-auto p-5 border-gray-200 border-b-2 pb-4	sm:pb-12">
         <div className="flex justify-between  items-center">
-          <div className=" text-[20px] sm:text-[25px] font-bold">What's on your mind?</div>
+          <div className=" text-[20px] sm:text-[25px] font-bold">
+            What's on your mind?
+          </div>
           <div className="flex items-center">
             <div className="w-[30px]  flex justify-center items-center h-[30px] bg-[#e2e2e7] font-bold text-xl  rounded-full mx-2">
               <i class="ri-arrow-left-line"></i>
@@ -96,6 +96,7 @@ function Body() {
             </div>
           ))}
         </div>
+        <div></div>
       </div>
       <div>
         <div className="flex flex-row">

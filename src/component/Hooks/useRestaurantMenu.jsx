@@ -7,7 +7,7 @@ const useRestaurantMenu = (resId) => {
       const fetchMenu = async () => {
         try {
           const response = await fetch(
-            `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.997454&lng=73.789803&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`
+            `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`
           );
           if (!response.ok) {
             throw new Error("Network response was not ok");
@@ -20,8 +20,12 @@ const useRestaurantMenu = (resId) => {
       };
       fetchMenu();
     }, [resId]);
+
+    console.log(resData)
   
     return resData;
+
   };
+
 
   export default useRestaurantMenu;
