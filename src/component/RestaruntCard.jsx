@@ -17,7 +17,6 @@ export const RestaruntCard = (props) => {
     costForTwo,
     deliveryTime,
   } = resData?.info;
-
   return (
     <div
       onClick={() => {
