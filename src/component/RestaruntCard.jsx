@@ -17,6 +17,8 @@ export const RestaruntCard = (props) => {
     costForTwo,
     deliveryTime,
   } = resData?.info;
+
+  console.log(cloudinaryImageId)
   return (
     <div
       onClick={() => {
@@ -27,8 +29,8 @@ export const RestaruntCard = (props) => {
       <div className="bg-white rounded-lg overflow-hidden shadow-lg transition duration-300 transform hover:-translate-y-1 hover:shadow-xl">
         <img
           className="w-full h-40 sm:h-40 object-cover object-center rounded-t-lg"
-          // src={CDN_URL + cloudinaryImageId}
-          src="https://b.zmtcdn.com/data/pictures/5/1600135/2d2b8f79d488269f7afbfba0daadf6dd.jpg?fit=around|771.75:416.25&crop=771.75:416.25;*,*"
+          src={CDN_URL + cloudinaryImageId}
+          // src="https://b.zmtcdn.com/data/pictures/5/1600135/2d2b8f79d488269f7afbfba0daadf6dd.jpg?fit=around|771.75:416.25&crop=771.75:416.25;*,*"
           alt="restaurant logo"
         />
         <div className="p-4">
